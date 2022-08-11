@@ -49,8 +49,8 @@
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4">
-                            {% if p.head_image %}
-                            <img class="img-fluid rounded" src="{{post.head_image.url}}" alt="{{post.title}}" /></figure>
+                            {% if post.head_image %}
+                            <img class="img-fluid rounded" src="{{post.head_image.url}}" alt="{{post.title}}"  /></figure>
                             {% else %}
                             <img class="img-fluid rounded" src="http://picsum.photos/seed/{{post.id}}/600/200" alt="{{post.title}}" /></figure>
                             {% endif %}
@@ -59,6 +59,21 @@
                             <p>
                                 {{post.content}}
                             </p>
+                            {% if post.file_upload %}
+                            <a href="{{post.file_upload.url}}" type="button" class="btn btn-secondary" role="button" download>
+                                Download:
+                                {% if post.get_file_ext == 'xlsx' or post.get_file_ext == 'xls' %}
+                                <i class="fa-solid fa-file-excel"></i>
+                                {% elif post.get_file_ext == 'csv' %}
+                                <i class="fa-solid fa-file-csv"></i>
+                                {% elif post.get_file_ext == 'doc' or post.get_file_ext == 'docx'%}
+                                <i class="fa-solid fa-file-word"></i>
+                                {% else %}
+                                <i class="fa-solid fa-file"></i>
+                                {% endif %}
+                                {{post.get_file_name}}
+                            </a>
+                            {% endif %}
                         </section>
 
                     </article>
