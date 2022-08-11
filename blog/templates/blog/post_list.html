@@ -88,7 +88,7 @@
                     <!-- Blog post-->
                     {% for p in post_list %}
                     <div class="card mb-4">
-                        <a href="{{p.get_absolute_url}}"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="{{p.get_absolute_url}}"><img class="card-img-top" src="{{p.head_image.url}}" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted">
                                 Posted on {{p.created_at}} by
