@@ -29,28 +29,25 @@
                         </div>
                     </div>
                     <!-- Categories widget-->
-                    <div class="card mb-4">
+                    <div class="card mb-4" id="categories-card">
                         <div class="card-header">Categories</div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
-                                    </ul>
-                                </div>
+                                <ul class="list-unstyled mb-0">
+                                    {% for category in categories %}
+                                    <li>
+                                        <a href="{{category.get_absolute_url}}">{{category}} ({{category.post_set.count}})</a>
+                                    </li>
+                                    {% endfor %}
+                                    <li>
+                                        <a href="/blog/category/no_category/">미분류 ({{no_category_post_count}})</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
                 <!-- Pagination-->
                 <nav aria-label="Pagination">
                     <hr class="my-0" />
