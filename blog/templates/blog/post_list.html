@@ -6,54 +6,53 @@
             <a type="button" href="/blog/create_post/" class="btn btn-secondary btn-sm float-end"><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;New Post</a>
         {% endif %}
     {% endif %}
-                    <h1>
-                        Blog
-                        {% if category %}
-                        <span class="badge bg-secondary">{{category}}</span>
-                        {% endif %}
-                        {% if tag %}
-                        <span class="badge bg-light text-dark"><i class="fa-solid fa-tags"></i>{{tag}}({{tag.post_set.count}})</span>
-                        {% endif %}
-                    </h1>
-                    {% if post_list.exists %}
-                        <!-- Blog post-->
-                        {% for p in post_list %}
-                        <div class="card mb-4" id="post-{{p.pk}}">
-                            {% if p.head_image %}
-                            <a href="{{p.get_absolute_url}}"><img class="card-img-top" src="{{p.head_image.url}}" alt="{{p}} head image" /></a>
-                            {% else %}
-                            <a href="{{p.get_absolute_url}}"><img class="card-img-top" src="http://picsum.photos/seed/{{p.id}}/600/200" alt="{{p}} head image"></a>
-                            {% endif %}
-                            <div class="card-body">
-                                {% if p.category %}
-                                <a class="badge bg-secondary float-end">{{p.category}}</a>
-                                {% else %}
-                                <a class="badge bg-secondary float-end">미분류</a>
-                                {% endif %}
-                                <h2 class="card-title h4">{{p.title}}</h2>
-                                {% if p.hook_text %}
-                                    <h6 class="text_muted">{{p.hook_text}}</h6>
-                                {% endif %}
-                                <div class="small text-muted">
-                                    Posted on {{p.created_at}} by
-                                    <a href="#">{{p.author | upper}}</a>
-                                </div>
-                                <p class="card-text">{{p.content|truncatewords:45}}</p>
-                                {% if p.tags.exists %}
-                                    <i class="fa-solid fa-tags"></i>
-                                    {% for tag in p.tags.iterator %}
-                                        <a href="{{tag.get_absolute_url}}"><span class="badge bg-light text-dark">{{tag}}</span></a>
-                                    {% endfor %}
-                                    <br/>
-                                    <br/>
-                                {% endif %}
+    <h1>
+        Blog
+        {% if category %}
+        <span class="badge bg-secondary">{{category}}</span>
+        {% endif %}
+        {% if tag %}
+        <span class="badge bg-light text-dark"><i class="fa-solid fa-tags"></i>{{tag}}({{tag.post_set.count}})</span>
+        {% endif %}
+    </h1>
+    {% if post_list.exists %}
+        <!-- Blog post-->
+        {% for p in post_list %}
+        <div class="card mb-4" id="post-{{p.pk}}">
+            {% if p.head_image %}
+            <a href="{{p.get_absolute_url}}"><img class="card-img-top" src="{{p.head_image.url}}" alt="{{p}} head image" /></a>
+            {% else %}
+            <a href="{{p.get_absolute_url}}"><img class="card-img-top" src="http://picsum.photos/seed/{{p.id}}/600/200" alt="{{p}} head image"></a>
+            {% endif %}
+            <div class="card-body">
+                {% if p.category %}
+                <a class="badge bg-secondary float-end">{{p.category}}</a>
+                {% else %}
+                <a class="badge bg-secondary float-end">미분류</a>
+                {% endif %}
+                <h2 class="card-title h4">{{p.title}}</h2>
+                {% if p.hook_text %}
+                    <h6 class="text_muted">{{p.hook_text}}</h6>
+                {% endif %}
+                <div class="small text-muted">
+                    Posted on {{p.created_at}} by
+                    <a href="#">{{p.author | upper}}</a>
+                </div>
+                <p class="card-text">{{p.content|truncatewords:45}}</p>
+                {% if p.tags.exists %}
+                    <i class="fa-solid fa-tags"></i>
+                    {% for tag in p.tags.iterator %}
+                        <a href="{{tag.get_absolute_url}}"><span class="badge bg-light text-dark">{{tag}}</span></a>
+                    {% endfor %}
+                    <br/>
+                    <br/>
+                {% endif %}
 
-                                <a class="btn btn-primary" href="{{p.get_absolute_url}}">Read more →</a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    {% else %}
-                        <h1>아직 게시물이 없습니다</h1>
-                    {% endif %}
-
+                <a class="btn btn-primary" href="{{p.get_absolute_url}}">Read more →</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <h1>아직 게시물이 없습니다</h1>
+    {% endif %}
 {% endblock %}

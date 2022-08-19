@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load socialaccount %}
 
 <html>
     <head>
@@ -27,21 +28,22 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/about_me/">About me</a>
                   </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown link
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{user.username}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/accounts/logout/">Log Out</a>
+                        </div>
+                    </li>
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-bs-toggle = "modal" data-bs-target="#loginModal">Log In</a>
                     </li>
+                    {% endif %}
                 </ul>
               </div>
             </div>
@@ -60,20 +62,20 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6 col-sm-12 d-grid gap-2">
-                                <button type="button" class="btn btn-outline-dark btn-sm gap-2">
+                                <a role="button" class="btn btn-outline-dark btn-sm gap-2" href="{% provider_login_url 'google' %}">
                                     <i class="fa-brands fa-google"></i>
                                     Log in with google
-                                </button>
-                                <button type="button" class="btn btn-outline-dark btn-sm">
+                                </a>
+                                <a role=="button" class="btn btn-outline-dark btn-sm" href="/accounts/login/">
                                     <i class="fa-solid fa-user"></i>
                                     Log in with username
-                                </button>
+                                </a>
                             </div>
                             <div class="col-md-6 col-sm-12 d-grid gap-2">
-                                <button type="button" class="btn btn-outline-dark btn-sm gap-2">
+                                <a role="button" class="btn btn-outline-dark btn-sm gap-2" href="/accounts/signup/">
                                     <i class="fa-solid fa-envelope"></i>
                                     Sign up with E-mail
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
