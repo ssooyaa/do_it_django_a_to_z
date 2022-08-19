@@ -6,11 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9b581c18-a229-48ea-9755-1673c51169ea" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/single_pages/templates/single_pages/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/single_pages/templates/single_pages/landing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/single_pages/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/single_pages/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/single_pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/single_pages/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/single_pages/static/single_pages/css/landing.css" beforeDir="false" afterPath="$PROJECT_DIR$/single_pages/static/single_pages/css/landing.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/single_pages/templates/single_pages/about_me.html" beforeDir="false" afterPath="$PROJECT_DIR$/single_pages/templates/single_pages/about_me.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,19 +1,90 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>개발자 달타냥입니다.</title>
+    <title>Portfolio</title>
+    <link href="{%static 'blog/bootstrap5/css/bootstrap.min.css' %} " rel="stylesheet" media="screen">
+    <link href="{%static 'single_pages/css/about_me.css' %} " rel="stylesheet" media="screen">
+    <script src="https://kit.fontawesome.com/a08faffd77.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<nav>
-  <a href="/blog/">Blog</a>
-  <a href="/about_me/">About me</a>
-</nav>
+{% include 'blog/navbar.html' %}
+<section>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>부산 디지털 스마트 아카데미</h1>
+                <br/>
+                <p class="lead">
+                    음악과 요리하는 것을 좋아합니다.<br/>
+                </p>
 
-<h1>안녕하세요. 달타냥입니다.</h1>
-<h2>이력</h2>
-<h2>Portfolio</h2>
-<h3>아직 공사중입니다.</h3>
+                <ul>
+                    <li>WORK EXPERIENCE</li>
+                    <ul>
+                        <li></li>
+                    </ul>
+                    <li>EDUCATION</li>
+                    <ul>
+                        <li> </li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <img class="img-fluid" src="{% static 'single_pages/images/back1.jpg' %}">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-light margin-for-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>PORTFOLIO</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#1">
+                    <img class="card-img-top" src="{% static 'single_pages/images/coffee.jpg' %}">
+                    <div class="card-body">
+                        <h5 class="card-title"> 첫번째</h5>
+                        <p>커피</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#2">
+                    <img class="card-img-top" src="{% static 'single_pages/images/music.jpg' %}">
+                    <div class="card-body">
+                        <h5 class="card-title"> 두번째</h5>
+                        <p>악보</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card" data-toggle="modal" data-target="#3">
+                    <img class="card-img-top" src="{% static 'single_pages/images/see.jpg' %}">
+                    <div class="card-body">
+                        <h5 class="card-title"> 세번째</h5>
+                        <p>바다</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="fixed-bottom">
+    {% include 'blog/footer.html' %}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
 </body>
 </html>
